@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-int arr[20];
+int arr[20], B[20];
 int n;
 
 void input()
@@ -43,4 +43,17 @@ void mergeSort(int low,int high)
     int mind = (low + high)/2;
     mergeSort(low, mind);
     mergeSort(mind + 1, high);
+
+    int i = low;
+    int j = mind + 1;
+    int k = low;
+
+    while (i <= mind && j <= high)
+    {
+        if (arr[i] <= arr[j])
+        {
+            B[k] = arr[i];
+            i++;
+        }
+    }
 }
